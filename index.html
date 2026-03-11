@@ -211,6 +211,7 @@
         .header-logo img {
             height: 120px;
             width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .names {
@@ -2191,6 +2192,33 @@
                 document.body.removeChild(el);
             });
         }
+    </script>
+    <script>
+        (function () {
+            const img = new Image();
+            img.onload = function () {
+                const off = document.createElement('canvas');
+                off.width = 64;
+                off.height = 64;
+                const octx = off.getContext('2d');
+                octx.drawImage(img, 4, 4, 56, 56);
+                octx.globalCompositeOperation = 'source-in';
+                octx.fillStyle = 'white';
+                octx.fillRect(0, 0, 64, 64);
+
+                const canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#0f1c2e';
+                ctx.fillRect(0, 0, 64, 64);
+                ctx.drawImage(off, 0, 0);
+
+                const link = document.querySelector("link[rel='icon']");
+                link.href = canvas.toDataURL('image/png');
+            };
+            img.src = 'agus_rama_logo.png';
+        })();
     </script>
 </body>
 </html>
