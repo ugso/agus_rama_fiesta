@@ -2210,8 +2210,10 @@
                 canvas.width = 64;
                 canvas.height = 64;
                 const ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.arc(32, 32, 32, 0, Math.PI * 2);
                 ctx.fillStyle = '#0f1c2e';
-                ctx.fillRect(0, 0, 64, 64);
+                ctx.fill();
                 ctx.drawImage(off, 0, 0);
 
                 const link = document.querySelector("link[rel='icon']");
