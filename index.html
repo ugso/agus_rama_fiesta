@@ -1947,7 +1947,7 @@
 
             try {
                 const response = await fetch(
-                    `${SUPABASE_URL}/functions/v1/buscar-invitado-fiesta?q=${encodeURIComponent(query)}`,
+                    `${SUPABASE_URL}/functions/v1/buscar-invitados-fiesta?q=${encodeURIComponent(query)}`,
                     {
                         headers: {
                             'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
